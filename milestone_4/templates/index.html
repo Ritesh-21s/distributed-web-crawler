@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>WebScour Search</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+}
+
+input{
+width:400px;
+padding:10px;
+font-size:18px;
+}
+
+button{
+padding:10px;
+font-size:18px;
+}
+
+#results{
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>WebScour Search Engine</h1>
+
+<input id="query" type="text" placeholder="Enter search query">
+
+<button onclick="search()">Search</button>
+
+<div id="results"></div>
+
+
+<script>
+
+async function search(){
+
+let q=document.getElementById("query").value;
+
+let response=await fetch("/search?q="+q);
+
+let data=await response.json();
+
+let resultsDiv=document.getElementById("results");
+
+resultsDiv.innerHTML="";
+
+data.forEach(item=>{
+
+let p=document.createElement("p");
+
+p.innerHTML="Document: "+item.document+" | Score: "+item.score;
+
+resultsDiv.appendChild(p);
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
