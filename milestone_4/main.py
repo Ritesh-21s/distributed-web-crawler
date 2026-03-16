@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Query, Request
-from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from search_engine import SearchEngine

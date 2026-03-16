@@ -12,7 +12,7 @@ class SearchEngine:
             self.idf = json.load(f)
 
 
-    # Query Processing
+
     def tokenize_query(self, query):
 
         query = query.lower()
@@ -24,7 +24,7 @@ class SearchEngine:
         return tokens
 
 
-    # Search Logic
+   
     def search(self, query, top_n=10):
 
         tokens = self.tokenize_query(query)
